@@ -5,10 +5,11 @@ int main(int argc, char const *argv[]) {
     int rand();
     double vt[N];
     double *p;
-
+    p = vt;
     for (i = 0; i < N; i++) {
-        *p = 1 + (rand() % 100);
-        printf("%.2f ", *p);
+        vt[i] = 1 + (rand() % 100);
+        printf("%.1f ", *p);
+        p++;
     }
 
     return 0;

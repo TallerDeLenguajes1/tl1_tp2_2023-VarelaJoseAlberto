@@ -6,10 +6,12 @@ int main(int argc, char const *argv[]) {
     int i, j, rand();
     int mt[N][M];
     int *p;
+    p = &mt[0][0];
     for (i = 0; i < N; i++) {
         for (j = 0; j < M; j++) {
-            *p = 1 + rand() % 100;
+            mt[i][j] = 1 + rand() % 100;
             printf("| %2.d ", *p);
+            p++;
         }
         printf("|\n");
     }
