@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 // Definicion de la estructura PC
 struct compu {
     int velocidad;   // entre 1 y 3 GHz
@@ -17,7 +18,7 @@ void computadoraVeloz(struct compu pcs[5]);
 int main() {
     // Definicion del arreglo de estructuras para 5 PC
     struct compu pcs[5];
-
+    srand(time(NULL));
     // Carga de datos de las 5 PC
     for (int i = 0; i < 5; i++) {
         pcs[i] = cargar();
@@ -25,14 +26,14 @@ int main() {
     // Muestro las PC generadas random
     printf("Datos de las 5 PC:\n");
     for (int i = 0; i < 5; i++) {
-        printf("\t\t\t ^^^^^^^^^^^^^^^^^^^ COMPUTADORA NUMERO %d ^^^^^^^^^^^^^^^^^^^ \n", i + 1);
+        printf("\t\t ^^^^^^^^ COMPUTADORA NUMERO %d ^^^^^^^^ \n", i + 1);
         mostrarLista(pcs[i]);
     }
 
     // Muestro la PC mas vieja y mas velocidad
-    printf("\t\t\t ^^^^^^^^^^^^^^^^^^^ COMPUTADORA MAS VIEJA ^^^^^^^^^^^^^^^^^^^ \n");
+    printf("\t\t ^^^^^^^^ COMPUTADORA MAS VIEJA ^^^^^^^^ \n");
     computadoraVieja(pcs);
-    printf("\t\t\t ^^^^^^^^^^^^^^ COMPUTADORA CON MAS VELOCIDAD ^^^^^^^^^^^^^^^ \n");
+    printf("\t\t ^^^^^^^^ COMPUTADORA CON MAS VELOCIDAD ^^^^^^^^ \n");
     computadoraVeloz(pcs);
 
     return 0;
@@ -42,6 +43,7 @@ struct compu cargar() {
     struct compu aux;
     char *tipos[6] = {"Intel", "AMD", "Celeron", "Athlon", "Core", "Pentium"};
     int rand();
+
     // Genero los datos random
     aux.velocidad = rand() % 4;
     aux.anio = rand() % 8 + 2015;
@@ -52,10 +54,10 @@ struct compu cargar() {
 
 void mostrarLista(struct compu pcs) {
     // Imprimo los datos de las 5 PC
-    printf("\t\t\t\t Tipo de procesador es: %s\n", pcs.tipo_cpu);
-    printf("\t\t\t\t Cantidad de nucleos(entre 1 y 8): %d\n", pcs.cantidad);
-    printf("\t\t\t\t Velocidad de procesamiento en GHz(entre 1 y 3): %d\n", pcs.velocidad);
-    printf("\t\t\t\t Anio de fabricacion(entre 2015 y 2023): %d\n", pcs.anio);
+    printf("\t\t Tipo de procesador es: %s\n", pcs.tipo_cpu);
+    printf("\t\t Cantidad de nucleos(entre 1 y 8): %d\n", pcs.cantidad);
+    printf("\t\t Velocidad de procesamiento en GHz(entre 1 y 3): %d\n", pcs.velocidad);
+    printf("\t\t Anio de fabricacion(entre 2015 y 2023): %d\n", pcs.anio);
     printf("\n\n");
 }
 
@@ -67,10 +69,10 @@ void computadoraVieja(struct compu pcs[5]) {
         }
     }
 
-    printf("\t\t\t\t Anio de fabricacion: %d\n", aux.anio);
-    printf("\t\t\t\t Tipo de procesador es: %s\n", aux.tipo_cpu);
-    printf("\t\t\t\t Cantidad de nucleos(entre 1 y 8): %d\n", aux.cantidad);
-    printf("\t\t\t\t Velocidad de procesamiento en GHz: %d\n", aux.velocidad);
+    printf("\t\t Anio de fabricacion: %d\n", aux.anio);
+    printf("\t\t Tipo de procesador es: %s\n", aux.tipo_cpu);
+    printf("\t\t Cantidad de nucleos(entre 1 y 8): %d\n", aux.cantidad);
+    printf("\t\t Velocidad de procesamiento en GHz: %d\n", aux.velocidad);
     printf("\n\n");
 }
 
@@ -81,9 +83,9 @@ void computadoraVeloz(struct compu pcs[5]) {
             aux = pcs[i];
         }
     }
-    printf("\t\t\t\t Velocidad de procesamiento en GHz: %d\n", aux.velocidad);
-    printf("\t\t\t\t Tipo de procesador es: %s\n", aux.tipo_cpu);
-    printf("\t\t\t\t Cantidad de nucleos: %d\n", aux.cantidad);
-    printf("\t\t\t\t Anio de fabricacion: %d\n", aux.anio);
+    printf("\t\t Velocidad de procesamiento en GHz: %d\n", aux.velocidad);
+    printf("\t\t Tipo de procesador es: %s\n", aux.tipo_cpu);
+    printf("\t\t Cantidad de nucleos: %d\n", aux.cantidad);
+    printf("\t\t Anio de fabricacion: %d\n", aux.anio);
     printf("\n\n");
 }
